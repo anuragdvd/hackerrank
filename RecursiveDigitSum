@@ -1,0 +1,40 @@
+// Problem : https://www.hackerrank.com/challenges/recursive-digit-sum/problem
+// Reference : http://applet-magic.com/digitsummod9.htm
+
+#include<bits/stdc++.h>
+#include<math.h>
+#define M 1000000007
+#define fr(i,c,b); for(int i=c;i<b;i++)
+#define si(x) int x; scanf("%d", &x)
+#define sll(x) ll x; scanf("%lld", &x)
+#define pi(x) printf("%d", x)
+#define pll(x) printf("%lld", x)
+#define nl printf("\n")
+
+typedef long long int ll;
+
+using namespace std;
+
+ll sup(string s,int k)
+{
+    ll a=0;
+    fr(i,0,s.length())
+    {
+        a=(a+s[i]-'0')%9;
+    }
+    return a%9;
+}
+
+int main()
+{
+    string n;
+    cin>>n;
+    string temp=n;
+    si(k); int b=k; --k;
+    ll res=sup(temp,b);
+    ll ans=(res*b)%9;
+    if(ans==0)
+        cout<<"9";
+    else
+        cout<<ans;
+}
