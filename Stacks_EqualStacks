@@ -1,0 +1,59 @@
+// Problem : https://www.hackerrank.com/challenges/equal-stacks/
+
+
+#include<bits/stdc++.h>
+#define fr(i,c,b) for(int i=c;i<b;i++)
+#define si(x) int x; scanf("%d", &x)
+#define sll(x) ll x; scanf("%lld", &x)
+#define pi(x) printf("%d", x)
+#define pll(x) printf("%lld", x)
+#define nl printf("\n")
+#define watch(x) cout << (#x) << " is " << (x) << endl
+
+typedef long long int ll;
+
+using namespace std;
+
+int main()
+{
+    si(n1); si(n2); si(n3);
+    queue<int> a,b,c;
+    ll s1=0,s2=0,s3=0;
+    while(n1--)
+    {
+        int temp; cin>>temp; a.push(temp); s1+=temp;
+    }
+    while(n2--)
+    {
+        int temp; cin>>temp; b.push(temp); s2+=temp;
+    }
+    while(n3--)
+    {
+        int temp; cin>>temp; c.push(temp); s3+=temp;
+    }
+  //  watch(s1);     watch(s2);     watch(s3);
+    
+        while(!((s1==s2&&s2==s3&&s3==s1)))
+        {
+            if(s1>=s2&&s1>=s3)
+            {
+                s1-=a.front();
+                a.pop();
+            }
+            else if(s2>=s1&&s2>=s3)
+            {
+                s2-=b.front();
+                 b.pop();
+
+            }
+            else if(s3>=s2&&s3>=s1)
+            {
+                s3-=c.front();
+                c.pop();
+            }
+           // watch(s1);     watch(s2);     watch(s3);
+
+
+        }
+        cout<<s1;
+    }
